@@ -25,14 +25,14 @@ public class Main {
 
     public static void main(String[] args) {
         ListNode list1 = takeInput();
-      //  ListNode list2 = takeInput();
+        ListNode list2 = takeInput();
 
 
         //ListNode mergerList = approach2.mergeTwoLists(list1,list2);
-        ListNode mergerList = approach2.mergeTwoLists(null,list1);
+        ListNode mergerList = Approach3.mergeTwoLists(list1,list2);
 
 
-        while (mergerList.next != null) {
+        while (mergerList!= null) {
             System.out.println(mergerList.val);
             mergerList = mergerList.next;
         }

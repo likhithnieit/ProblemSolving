@@ -8,19 +8,18 @@ public class approach2 {
         ListNode pointer2 = list2;
         ListNode mergeNode = new ListNode();
         ListNode mergerPointer = mergeNode;
-        boolean firstAdd = true;
 
         while (pointer1 != null || pointer2 != null){
             while (pointer1 == null){
-                if (firstAdd) {
-                    mergerPointer.val = pointer2.val;
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                }else {
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                    mergerPointer.val = pointer2.val;
-                }
+                    if (mergerPointer == null)
+                    mergerPointer = new ListNode();
+                    else {
+                        mergerPointer.next = new ListNode();
+                        mergerPointer = mergerPointer.next;
+                    }
+
+                mergerPointer.val = pointer2.val;
+
                 pointer2 = pointer2.next;
                 if (pointer2 == null)
                     break;
@@ -29,15 +28,9 @@ public class approach2 {
             }
 
             while (pointer2 == null){
-                if (firstAdd) {
-                    mergerPointer.val = pointer1.val;
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                }else {
                     mergerPointer.next = new ListNode();
                     mergerPointer = mergerPointer.next;
                     mergerPointer.val = pointer1.val;
-                }
                 pointer1 = pointer1.next;
                 if (pointer1 == null)
                     break;
@@ -47,49 +40,27 @@ public class approach2 {
             }
 
             if (pointer1.val < pointer2.val) {
-                if (firstAdd) {
-                    mergerPointer.val = pointer1.val;
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                }else {
                     mergerPointer.next = new ListNode();
                     mergerPointer = mergerPointer.next;
                     mergerPointer.val = pointer1.val;
-                }
+
                 pointer1 = pointer1.next;
             } else if (pointer1.val == pointer2.val) {
-                if (firstAdd) {
-                    mergerPointer.val = pointer1.val;
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                }else {
+
                     mergerPointer.next = new ListNode();
                     mergerPointer = mergerPointer.next;
                     mergerPointer.val = pointer1.val;
-                }if (firstAdd) {
-                    mergerPointer.val = pointer2.val;
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                }else {
                     mergerPointer.next = new ListNode();
                     mergerPointer = mergerPointer.next;
                     mergerPointer.val = pointer2.val;
-                }
                 pointer1 = pointer1.next;
                 pointer2 = pointer2.next;
             } else if (pointer1.val > pointer2.val) {
-                if (firstAdd) {
-                    mergerPointer.val = pointer2.val;
-                    mergerPointer.next = new ListNode();
-                    mergerPointer = mergerPointer.next;
-                }else {
                     mergerPointer.next = new ListNode();
                     mergerPointer = mergerPointer.next;
                     mergerPointer.val = pointer2.val;
-                }
                 pointer2 = pointer2.next;
             }
-            firstAdd = false;
         }
 
         return mergeNode;
