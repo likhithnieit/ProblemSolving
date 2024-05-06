@@ -29,8 +29,8 @@ public class Main {
 
 
         //ListNode mergerList = approach2.mergeTwoLists(list1,list2);
-        ListNode mergerList = Approach3.mergeTwoLists(list1,list2);
-
+       // ListNode mergerList = Approach3.mergeTwoLists(list1,list2);
+            ListNode mergerList = EfficientApproach.mergeTwoLists(list1,list2);
 
         while (mergerList!= null) {
             System.out.println(mergerList.val);
